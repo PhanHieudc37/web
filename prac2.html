@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>Bai 1</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <h1 align="center" font-color="blue" text-color="blue">
+
+        
+        
+        BẢNG ĐIỀU TRA VẬT NUÔI YÊU THÍCH</h1>
+    <h2 align="center" colour="blue">
+      Trả lời các câu hỏi sau về các con vật yêu thích của bạn
+    </h2>
+    <form
+      action="//www.animalsites.com"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <table border="5" cellspacing="5" align="center" color="pink" bgcolor="pink">
+        <tr>
+          <td></td>
+          <td>CHÓ</td>
+          <td>MÈO</td>
+        </tr>
+        <tr>
+          <td>BẠN NUÔI</td>
+          <td><input type="checkbox" name="ckCO" value="CO" />CÓ</td>
+          <td><input type="checkbox" name="ckCO" value="CO" />CÓ</td>
+        </tr>
+        <tr>
+          <td>TÊN</td>
+          <td><label for="text" size="20"></label><input type="text" name="txtTen" size="30"  /></td>
+          <td><input type="text " name="txtTen" size="30" cellspacing="10" /></td>
+        </tr>
+        <tr>
+            <td>MÀU LÔNG</td>
+            <td>
+                <label for="den">Den</label>
+                <input type="radio" name="rdColor" value="Den">
+                <label for="trang">Trang</label>
+                <input type="radio" name="rdColor" value="Trang">
+                <label for="khac">Khac</label>
+                <input type="radio" name="rdColor" value="Khac">
+                
+            </td>
+            <td>
+                <label for="den">Den</label>
+                <input type="radio" name="rdColor" value="Den">
+                <label for="trang">Trang</label>
+                <input type="radio" name="rdColor" value="Trang">
+                <label for="khac">Khac</label>
+                <input type="radio" name="rdColor" value="Khac">
+                
+            </td>
+            
+                
+            
+            
+        </tr>
+        
+      </table>
+      <h2 class="style1" align="center" font color="pink">
+        <font color="pink">
+        Lý do bạn yêu quý nó
+      </h2>
+
+      <table align="center">
+        <tr>
+            <td>
+                <select name="" id="">
+                    <option value="Dep">Dep</option>
+                    <option value="Dethuong">De thuong</option>
+                    <option value="Ngoan">Ngoan</option>
+                </select>
+                
+            </td>
+        </tr>
+      </table>
+    <table align="center">
+        <tr>
+            <td align ="right">
+                <input type="reset" value="Xoa" onclick="clearForm()">
+            </td>
+            <td align="left">
+                <input type="button" value="Huy" onclick="cancelForm()">
+            </td>
+        </tr>
+        <tr>
+            <td align="center" >
+                <input type="submit" name="cmdSento" id="Send" onclick="validateForm()">
+            </td>
+        </tr>
+       
+
+    </table>
+
+      
+
+      
+      
+    </form>
+
+    <script>
+        function clearForm() {
+            document.getElementById("registration-form").reset();
+        }
+        function cancelForm(){
+            var confirmation = confirm(" Bạn đã hủy bỏ việc gửi bản điều tra.")
+            if (confirmation){
+                document.getElementById("reason").focus();
+            }
+
+        
+        }
+        function validateForm() {
+            var dogChecked = document.getElementsByName("dog")[0].checked;
+            var catChecked = document.getElementsByName("cat")[0].checked;
+            var animalName = document.getElementById("animalName").value;
+            var furColor = document.getElementById("furColor").value;
+
+            if (!dogChecked && !catChecked) {
+                alert("Bạn phải chọn ít nhất một con vật (CHÓ hoặc MÈO).");
+            } else if ((dogChecked || catChecked) && animalName === "") {
+                alert("Bạn phải nhập tên con vật mà bạn yêu quý.");
+                document.getElementById("animalName").focus();
+            } else if ((dogChecked || catChecked) && furColor === "") {
+                alert("Bạn phải chọn màu lông cho con vật yêu quý của bạn.");
+                document.getElementById("furColor").focus();
+            } else {
+                // Nếu tất cả thông tin đã được nhập đầy đủ, chuyển người dùng sang trang web animalsites.com.
+                window.location.href = "https://www.animalsites.com";
+            }
+        }
+    </script>
+  </body>
+</html>

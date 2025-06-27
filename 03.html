@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trò chơi Tìm số</title>
+</head>
+<body>
+    <h1>Trò chơi Tìm số</h1>
+    <p>Bạn hãy tìm số từ 1 đến 100:</p>
+    <input type="text" id="guess" placeholder="Nhập số ở đây">
+    <button onclick="checkGuess()">Kiểm tra</button>
+    <p id="message"></p>
+
+    <script>
+        // Hàm kiểm tra số đoán
+        function checkGuess() {
+            var randomNumber = Math.floor(Math.random() * 100) + 1; // Sinh số ngẫu nhiên từ 1 đến 100
+            var userGuess = document.getElementById("guess").value;
+            var message = document.getElementById("message");
+
+            if (userGuess == randomNumber) {
+                message.innerHTML = "Chúc mừng, bạn đã đoán đúng số!";
+            } else if (userGuess < randomNumber) {
+                message.innerHTML = "Số bạn đoán nhỏ hơn số cần tìm. Hãy thử lại!";
+            } else {
+                message.innerHTML = "Số bạn đoán lớn hơn số cần tìm. Hãy thử lại!";
+            }
+        }
+    </script>
+</body>
+</html>
